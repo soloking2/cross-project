@@ -3,10 +3,11 @@ import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { map, switchMap } from 'rxjs/operators';
 
 import * as fromApp from '../../store/app.reducer';
 import * as fromActions from '../../shopping-list/store/shopping-list.actions';
-import { map, switchMap } from 'rxjs/operators';
+import * as RecipeActions from '../store/recipe.actions';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -56,7 +57,7 @@ id: number;
   }
 
   onDelete() {
-    this.recipeService.deleteRecipe(this.id);
+    this.store.dispatch(new RecipeActions.DeleteRecipe(this.id));
     this.router.navigate(['recipe']);
   }
 
