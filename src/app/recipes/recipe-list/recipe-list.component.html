@@ -1,0 +1,21 @@
+<div *ngIf="recipes.length > 0">
+<div class="row">
+  <div class="col-12 my-2">
+    <button class="btn btn-success" routerLink="/recipe/new">
+    New Recipe
+  </button>
+</div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <app-recipe-item *ngFor="let recipe of recipes; let i = index"
+    [recipess]="recipe"
+    [index]="i"
+    ></app-recipe-item>
+  </div>
+</div>
+</div>
+<div *ngIf="recipes.length < 1">
+  <h3 class="lead mt-4 text-center">No Recipe</h3>
+</div>
+
