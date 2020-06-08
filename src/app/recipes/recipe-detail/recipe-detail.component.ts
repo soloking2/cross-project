@@ -17,8 +17,7 @@ import * as RecipeActions from '../store/recipe.actions';
 export class RecipeDetailComponent implements OnInit {
 receipeSelected: Recipe;
 id: number;
-  constructor(private recipeService: RecipeService,
-              private router: Router,
+  constructor(private router: Router,
               private route: ActivatedRoute,
               private store: Store<fromApp.AppState>) { }
 

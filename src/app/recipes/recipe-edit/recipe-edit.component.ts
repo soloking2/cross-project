@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router, UrlTree } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { RecipeService } from '../recipe.service';
+
 
 import { CanDeactivateComponent } from 'src/app/shared/component.guard';
 import { Observable, Subscription } from 'rxjs';
@@ -28,7 +28,6 @@ export class RecipeEditComponent implements OnInit, CanDeactivateComponent, OnDe
     return <FormArray> this.recipeForm.get('ingredients');
   }
   constructor(private route: ActivatedRoute,
-              private recipeService: RecipeService,
               private router: Router, private store: Store<fromApp.AppState>) { }
 
   ngOnInit(): void {

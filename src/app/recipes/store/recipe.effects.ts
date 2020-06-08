@@ -18,7 +18,7 @@ export class RecipeEffects {
   @Effect()
   fetchRecipes$ = this.actions$.pipe(
     ofType(fromRecipeActions.FETCH_RECIPES),
-    switchMap(() => {
+    switchMap((actions: fromRecipeActions.FetchRecipes) => {
       return this.http.get<Recipe[]>('https://training-202.firebaseio.com/recipes.json');
     }),
     map(recipes => {
